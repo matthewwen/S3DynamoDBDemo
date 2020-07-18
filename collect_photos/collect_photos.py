@@ -76,6 +76,11 @@ class CollectPhotos:
             AwsTasks.log_file(item, client=db_client)
             CollectPhotos.log_status(i, num_files, "dynamodb")
         print("\nThere are {} Number of Files to Upload".format(len(files)))
+
+        files = AwsTasks.scan_missing()
+        if files is None or len(files) == 0:
+            print("Already Finished! Thanks")
+            return
         CollectPhotos.upload_s3(files, temp)
 
     @staticmethod
