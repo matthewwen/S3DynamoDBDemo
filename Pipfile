@@ -1,0 +1,13 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+boto3 = ">=1.14.23"
+pytest = ">=5.4.3"
+
+[dev-packages]
+
+[requires]
+python_version = "3.7"
