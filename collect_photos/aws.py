@@ -17,21 +17,11 @@ class AwsTasks:
 
     @staticmethod
     def get_dynamodb_client(client):
-        return boto3.client(
-            "dynamodb",
-            region_name=region_name,
-            aws_access_key_id=aws_access_key_id,
-            aws_secret_access_key=aws_secret_access_key
-        ) if client is None else client
+        return boto3.client("dynamodb") if client is None else client
 
     @staticmethod
     def get_s3_resource(resource):
-        return boto3.resource(
-            's3',
-            region_name=region_name,
-            aws_access_key_id=aws_access_key_id,
-            aws_secret_access_key=aws_secret_access_key
-        ) if resource is None else resource
+        return boto3.resource('s3') if resource is None else resource
 
     @staticmethod
     def __parse_file(list_response):

@@ -81,6 +81,7 @@ class CollectPhotos:
         if files is None or len(files) == 0:
             print("Already Finished! Thanks")
             return
+        print("Found {} files out of {} files that need to upload".format(len(files), num_files))
         CollectPhotos.upload_s3(files, temp)
 
     @staticmethod
