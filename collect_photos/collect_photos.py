@@ -49,8 +49,7 @@ class CollectPhotos:
 
     @staticmethod
     def log_status(i, num_files, service):
-        if i % (int(num_files / 30) + 1) == 0:
-            print(" -> {}% Done Uploading to {}".format(int(i / num_files * 100), service), end="\r")
+        print(" -> {}% Done Uploading to {}".format(int(i / num_files * 100000) / 1000, service), end="\r")
 
     @staticmethod
     def upload_s3(list_files: list, mount: Mounting):
@@ -82,6 +81,7 @@ class CollectPhotos:
             print("Already Finished! Thanks")
             return
         print("Found {} files out of {} files that need to upload".format(len(files), num_files))
+        files = [item["name"] for item in files]
         CollectPhotos.upload_s3(files, temp)
 
     @staticmethod
